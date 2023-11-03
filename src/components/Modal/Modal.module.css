@@ -1,0 +1,70 @@
+.back {
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #cccc;
+    z-index: 10;
+    width: 100%;
+}
+
+.content {
+    z-index: 100;
+    height: 5em;
+    width: 47%;
+    position: fixed;
+
+    top: 28%;
+    left: 28%;
+
+
+}
+
+.head {
+    background: purple;
+    color: white;
+    font-size: 25px;
+    padding: 10px 0px 10px 20px;
+
+}
+
+.body {
+    background: white;
+    max-height: 8em;
+    overflow-x: hidden;
+    padding: 10px 0px 10px 20px;
+
+
+}
+
+.foot {
+    border-top: solid 2px #ccc;
+    width: 100%;
+    height: 4em;
+    background: white;
+    padding: 5px 0px 10px 20px;
+}
+
+.foot span {
+    float: left;
+}
+
+.btn-1 {
+    float: right;
+    margin-top: 8px;
+    margin-right: 19px;
+    border-radius: 20px !important;
+    border: 1px solid blue !important;
+    width: 6em !important;
+}
+
+.btn-2 {
+    float: right;
+    margin-top: 8px;
+    margin-right: 19px;
+    background: white !important;
+    color: black !important;
+    border: 1px solid black !important;
+    border-radius: 20px !important;
+    width: 6em !important;
+}

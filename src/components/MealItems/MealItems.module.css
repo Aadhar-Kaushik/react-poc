@@ -1,0 +1,26 @@
+.mealItems{
+    height: 6em;
+    background: purple;
+    color: white;
+    margin: 1em;
+    padding: 1em;
+    border-radius: 20px;
+    padding-left: 3em;
+    width: 94%;
+}
+.title{
+    font-size: 1.5rem;
+}
+
+.input{
+    margin-top: 12px !important;
+}
+.input input{
+    width: 2.5em;
+    height: 2.5em;
+    margin-top: 2px;
+}
+.input button{
+    margin-left: 1em;
+    margin-top: -6px;
+}

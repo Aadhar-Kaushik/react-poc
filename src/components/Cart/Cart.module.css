@@ -1,0 +1,33 @@
+.list{
+    height: 2em;
+    font-size: 20px;
+}
+
+.name{
+    font-size: 25px;
+    color: #c834c8;
+}
+
+.minus{
+    color: red;
+    font-size: 42px;
+    font-weight: 600;
+    cursor: pointer;
+}
+.plus{
+    color: green;
+    font-size: 42px;
+    font-weight: 600;
+    margin-left: 0.5em;
+    cursor: pointer;
+}
+
+.foot span{
+    font-size: 18px;
+}
+
+.foot strong{
+    font-size: 18px;
+    color: #c834c8;
+    margin-left: 0.5em;
+}

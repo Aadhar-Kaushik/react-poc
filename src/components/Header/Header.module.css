@@ -1,0 +1,25 @@
+.header{
+    height: 5em;
+    width: 100%;
+    background: purple;
+}
+
+.cart-button{
+    float: right;
+}
+.cart-button button{
+    font-weight: 600;
+    margin-right: 3em;
+    margin-top: 1em;
+    height: 3em;
+    width: 7em;
+    font-size: 17px;
+    background: transparent;
+    border: 2px solid #cccc;
+    border-radius: 20px;
+}
+.cart-button button:hover{
+   
+    background: #dd77ff !important;
+    color: black !important;
+}
