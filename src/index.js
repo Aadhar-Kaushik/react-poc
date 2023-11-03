@@ -5,10 +5,13 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 import 'bootstrap/dist/css/bootstrap.css';
+import CartContextProvider from './ui/store/cart-context-provider';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    <CartContextProvider>
     <App />
+    </CartContextProvider>
   </React.StrictMode>
 );
 

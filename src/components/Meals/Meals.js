@@ -30,14 +30,14 @@ const DUMMY_MEALS = [
   },
 ];
 
-const Meals = props => {
+const Meals = () => {
   const meals = DUMMY_MEALS.map(meal => <MealItems
     key={meal.id}
     id={meal.id}
     name={meal.name}
     description={meal.description}
     price={meal.price}
-    onAdd={props.onAdd}
+    
   />)
 
   return <div className={classes.meals}>

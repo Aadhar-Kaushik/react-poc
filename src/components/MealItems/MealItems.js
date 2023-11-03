@@ -1,7 +1,9 @@
-import { useRef } from "react"
+import { useContext, useRef } from "react"
+import CartContext from "../../ui/store/cart-context"
 import classes from "./MealItems.module.css"
 const MealItems = props => {
     const countInputRef= useRef()
+    const cartCtx=useContext(CartContext)
     const addItemToCartHandler = () => {
         const item = {
             id:props.id,
@@ -10,7 +12,7 @@ const MealItems = props => {
             price: props.price,
             quantity:+countInputRef.current.value
         }
-        props.onAdd(item)
+        cartCtx.addItemsToCart(item)
 
     }
     return <div className={`${classes.mealItems} row`}>
