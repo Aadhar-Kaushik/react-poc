@@ -4,42 +4,16 @@ import Header from './components/Header/Header';
 import Meals from './components/Meals/Meals';
 import Card from './ui/Card/Card';
 import Cart from './components/Cart/Cart';
-import CartContext from './ui/store/cart-context';
+import { useSelector } from 'react-redux';
 
 
-const DUMMY_MEALS = [
-  {
-    id: 'm1',
-    name: 'Sushi',
-    description: 'Finest fish and veggies',
-    quantity: 23,
-  },
-  {
-    id: 'm2',
-    name: 'Schnitzel',
-    description: 'A german specialty!',
-    quantity: 16,
-  },
-  {
-    id: 'm3',
-    name: 'Barbecue Burger',
-    description: 'American, raw, meaty',
-    quantity: 13,
-  },
-  {
-    id: 'm3',
-    name: 'Barbecue Burger',
-    description: 'American, raw, meaty',
-    quantity: 13,
-  },
-
-];
 function App() {
 
-  const cartCtx = useContext(CartContext)
+  // const cartCtx = useContext(CartContext)
+  const isCartShown = useSelector(state => state.cart.isCartShown)
 
   return <Card >
-    {cartCtx.isCartShown && <Cart 
+    {isCartShown && <Cart
     />}
     <Header />
     <Meals />
