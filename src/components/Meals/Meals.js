@@ -1,7 +1,9 @@
 import classes from "./Meals.module.css"
 import img from "../../assets/meals.jpg"
-import React from "react"
+import React, { useEffect } from "react"
 import MealItems from "../MealItems/MealItems";
+import { useDispatch, useSelector } from "react-redux";
+import { getMeals } from "../../ui/redux/actions";
 
 const DUMMY_MEALS = [
   {
@@ -31,19 +33,30 @@ const DUMMY_MEALS = [
 ];
 
 const Meals = () => {
-  const meals = DUMMY_MEALS.map(meal => <MealItems
+  const dispatch=useDispatch()
+
+  useEffect(()=>{
+    setTimeout(() => {
+      
+      dispatch(getMeals())
+    }, 1000);
+  },[])
+
+ const meals=useSelector(state=>state.cart.meals)
+
+  const mealMap = meals.map(meal => <MealItems
     key={meal.id}
     id={meal.id}
     name={meal.name}
     description={meal.description}
     price={meal.price}
-    
+
   />)
 
   return <div className={classes.meals}>
     <img src={img} />
     <ul>
-      {meals}
+      {mealMap}
     </ul>
   </div>
 }

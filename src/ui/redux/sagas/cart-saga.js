@@ -1,5 +1,7 @@
 import { call, put, select, takeLatest } from "redux-saga/effects"
-import { ADD_ITEMS_TO_CART, ADD_REMOVE_VIA_CART, setCartItems, setCount, setTotalAmount } from "../actions"
+import { getApi } from "../../api/api"
+import { API_URL } from "../../constants/constant"
+import { ADD_ITEMS_TO_CART, ADD_REMOVE_VIA_CART, GET_MEALS, setCartItems, setCount, setMeals, setTotalAmount } from "../actions"
 
 function* addRemoveViaCart(payload) {
     const CURRENT_STATE = yield select()
@@ -27,7 +29,7 @@ function* addRemoveViaCart(payload) {
 }
 
 function* addItemsToCart(payload) {
-    const CURRENT_STATE=yield select()
+    const CURRENT_STATE = yield select()
 
     const item = CURRENT_STATE.cart.cartItems.find(e => e.id === payload.data.id)
     const itemIndex = CURRENT_STATE.cart.cartItems.findIndex(e => e.id === payload.data.id)
@@ -45,11 +47,30 @@ function* addItemsToCart(payload) {
     yield put(setTotalAmount(totalAmt))
 }
 
+function* getMeals() {
+    try {
+        const RESPONSE = yield call(getApi, API_URL().meals)
+        // const RESPONSE = yield call(getApi, "https://angular-services-f3b20-default-rtdb.firebaseio.com/meals.json")
+
+        if (RESPONSE?.status === 200) {
+            yield put(setMeals(Object.values(RESPONSE.data)))
+        } else {
+            alert("Error!")
+        }
+    } catch (err) {
+        console.log("Error ::: ", err)
+    }
+}
+
 export function* watchAddRemoveViaCart() {
     yield takeLatest(ADD_REMOVE_VIA_CART, addRemoveViaCart)
 }
 
-export function* watchAddItemsToCart(){
-    yield takeLatest(ADD_ITEMS_TO_CART,addItemsToCart)
+export function* watchAddItemsToCart() {
+    yield takeLatest(ADD_ITEMS_TO_CART, addItemsToCart)
 
+}
+
+export function* watchGetMeals() {
+    yield takeLatest(GET_MEALS, getMeals)
 }
