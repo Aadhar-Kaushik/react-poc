@@ -8,16 +8,19 @@ import 'bootstrap/dist/css/bootstrap.css';
 import CartContextProvider from './ui/store/cart-context/cart-context-provider';
 import { Provider } from 'react-redux';
 import { configureStore } from "./ui/redux/configure-store"
+import {BrowserRouter} from "react-router-dom"
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 
 root.render(
   <React.StrictMode>
+    <BrowserRouter>
     <CartContextProvider>
       <Provider store={configureStore()}>
         <App />
       </Provider>
     </CartContextProvider>
+    </BrowserRouter>
   </React.StrictMode>
 );
 

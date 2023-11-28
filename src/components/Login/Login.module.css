@@ -1,0 +1,22 @@
+.card{
+    padding: 1em;
+    height: 50vh;
+    width: 30vw;
+    background: #800080c7;
+    border-radius: 1em;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: #FFFF;
+}
+.card h3{
+    text-align: center;
+}
+
+.card button{
+    margin: 1em;
+    float: right;
+    border-radius: 30px;
+    width: 7em;
+}
