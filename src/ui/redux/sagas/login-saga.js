@@ -9,7 +9,7 @@ function* loadExternalConfig(){
         Object.assign(CONFIG.SYSTEM_PROPS,RESPONSE.data)
 
     }catch(err){
-        console.log(err)
+        console.warn(err)
     }
 }
 

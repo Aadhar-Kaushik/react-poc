@@ -5,7 +5,6 @@ import { ADD_ITEMS_TO_CART, ADD_REMOVE_VIA_CART, GET_MEALS, setCartItems, setCou
 
 function* addRemoveViaCart(payload) {
     const CURRENT_STATE = yield select()
-    console.log(CURRENT_STATE)
     const itemIndex = CURRENT_STATE.cart.cartItems.findIndex(e => e.id === payload.data.item.id)
     let tmpCart = [...CURRENT_STATE.cart.cartItems]
     if (payload.data.action === "+") {
@@ -57,7 +56,7 @@ function* getMeals() {
             alert("Error!")
         }
     } catch (err) {
-        console.log("Error ::: ", err)
+        console.warn("Error ::: ", err)
     }
 }
 

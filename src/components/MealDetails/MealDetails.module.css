@@ -9,10 +9,13 @@
     top: 50%;
     transform: translate(-50%,-50%);
     border: 2px solid blueviolet;
-    width: 20em;
+    max-width: 75%;
 }
 
 .table table tr{
     border: 2px solid blueviolet;
     font-size: 2em;
+}
+.table table tr td{
+    width: 50%;
 }

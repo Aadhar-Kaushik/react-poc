@@ -21,7 +21,6 @@ const MealItems = props => {
     }
 
     const onClickMealNameHandler = () => {
-        console.log(props)
         navigate(`${props.id}/${props.name}
         ?desc=${props.description}&price=${props.price}`)
     }

@@ -28,7 +28,7 @@ export function getApi(url, token = "") {
         const delay=setTimeout(() => {
             clearTimeout(delay)
         }, 200);
-        console.log("finally block getAPI :::: HIDE LOADER")
+        console.warn("finally block getAPI :::: HIDE LOADER")
     })
     
 }
@@ -62,14 +62,14 @@ export function postApi(url,body,token=""){
         const delay=setTimeout(() => {
             clearTimeout(delay)
         }, 200);
-        console.log("finally block postAPI :::: HIDE LOADER")
+        console.warn("finally block postAPI :::: HIDE LOADER")
         
     })
     
 }
 
 axios.interceptors.request.use(req=>{
-    console.log("SHOW LOADER")
+    console.warn("SHOW LOADER")
     return req
 },
 err=>{

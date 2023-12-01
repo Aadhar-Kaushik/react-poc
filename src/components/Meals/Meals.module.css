@@ -4,6 +4,8 @@
 }
 .meals ul{
     
+    overflow: auto;
+    height: 34vh;
     margin: 2em 0em 0em 3em;
 
 }
