@@ -5,7 +5,7 @@ import { LOAD_CONFIG } from "../actions";
 
 function* loadExternalConfig(){
     try{
-        const RESPONSE=yield call(getApi,"configurations/url.json")
+        const RESPONSE=yield call(getApi,"/configurations/url.json")
         Object.assign(CONFIG.SYSTEM_PROPS,RESPONSE.data)
 
     }catch(err){

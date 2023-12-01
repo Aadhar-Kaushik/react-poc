@@ -1,0 +1,18 @@
+.table{
+    height: 83vh;
+    position: relative;
+}
+
+.table table{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    border: 2px solid blueviolet;
+    width: 20em;
+}
+
+.table table tr{
+    border: 2px solid blueviolet;
+    font-size: 2em;
+}

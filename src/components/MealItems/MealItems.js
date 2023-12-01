@@ -1,11 +1,12 @@
 import { useContext, useRef } from "react"
 import { useDispatch } from "react-redux"
+import { useNavigate } from "react-router-dom"
 import { addItemsToCart } from "../../ui/redux/actions"
-import CartContext from "../../ui/store/cart-context/cart-context"
 import classes from "./MealItems.module.css"
 const MealItems = props => {
     const countInputRef = useRef()
     const dispatch = useDispatch()
+    const navigate = useNavigate()
     // const cartCtx=useContext(CartContext)
     const addItemToCartHandler = () => {
         const item = {
@@ -18,11 +19,19 @@ const MealItems = props => {
         // cartCtx.addItemsToCart(item)
         dispatch(addItemsToCart(item))
     }
+
+    const onClickMealNameHandler = () => {
+        console.log(props)
+        navigate(`${props.id}/${props.name}
+        ?desc=${props.description}&price=${props.price}`)
+    }
+
     return <div className={`${classes.mealItems} row`}>
         <div className="col-10">
 
 
-            <div className={classes.title}><strong>{props.name}</strong></div>
+            <div className={classes.title} onClick={onClickMealNameHandler}><strong>{props.name}</strong>
+            </div>
             <div className="row">
 
                 <div className="col-7"><strong>Description: </strong>{props.description}</div>

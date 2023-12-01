@@ -12,6 +12,12 @@
     font-size: 1.5rem;
 }
 
+.title :hover{
+    color: rgb(86, 86, 211);
+    text-decoration: underline;
+    cursor: pointer;
+}
+
 .input{
     margin-top: 12px !important;
 }

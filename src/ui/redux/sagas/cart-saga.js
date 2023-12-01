@@ -50,7 +50,6 @@ function* addItemsToCart(payload) {
 function* getMeals() {
     try {
         const RESPONSE = yield call(getApi, API_URL().meals)
-        // const RESPONSE = yield call(getApi, "https://angular-services-f3b20-default-rtdb.firebaseio.com/meals.json")
 
         if (RESPONSE?.status === 200) {
             yield put(setMeals(Object.values(RESPONSE.data)))
