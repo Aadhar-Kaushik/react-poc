@@ -1,9 +1,12 @@
+import React from "react"
 import { Navigate, Route, Routes } from "react-router-dom"
-import Home from "../Home/Home"
-import Login from "../Login/Login"
-import MealDetails from "../MealDetails/MealDetails"
-import Meals from "../Meals/Meals"
-import PageNotFound from "../PageNotFound/PageNotFound"
+
+const Home= React.lazy(()=>import("../Home/Home"))
+const Login= React.lazy(()=>import("../Login/Login"))
+const MealDetails= React.lazy(()=>import("../MealDetails/MealDetails"))
+const Meals= React.lazy(()=>import("../Meals/Meals"))
+const PageNotFound= React.lazy(()=>import("../PageNotFound/PageNotFound"))
+const UserDetails=React.lazy(()=>import("../UserDetails/UserDetails"))
 
 const AppRouter = () => {
     return <Routes>
@@ -15,6 +18,7 @@ const AppRouter = () => {
             <Route path="meals/:id/:name" element={<MealDetails />} />
             {/* <Route /> */}
         </Route>
+        <Route path="/user-details" element={<UserDetails />} />
         <Route path="/*" element={<PageNotFound />} />
     </Routes>
 }

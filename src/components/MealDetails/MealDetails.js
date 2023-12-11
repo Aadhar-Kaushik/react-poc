@@ -19,7 +19,10 @@ const MealDetails = () => {
 
     return <div className={classes.table}>
         <button className="btn btn-danger" onClick={() => navigate(-1)}>Back</button>
-        <button className="btn btn-primary" onClick={() => setToggle(prev=>!prev)}>Toggle</button>
+        <button className="btn btn-primary" onClick={() => setToggle(prev=>!prev)}>
+            <div>Toggle</div>
+            <div>(For UseEffect)</div>
+        </button>
 
         <table>
             <tr>

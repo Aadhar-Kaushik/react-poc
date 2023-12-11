@@ -18,7 +18,9 @@ const Home = () => {
     return <>
         {isCartShown && <Cart
         />}
-        <Header />
+        <Header isCartBtnShown={true} 
+        heading="MEALS"
+        />
         <Outlet/>
     </>
 

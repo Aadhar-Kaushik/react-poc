@@ -43,6 +43,7 @@ const Login = () => {
             </div>
             <div><label>Password : </label><br /><input
                 value={password}
+                type="password"
                 onChange={onChangePassword}
                 onBlur={onBlurPassword}
             /></div>
