@@ -1,15 +1,39 @@
-.cover{
+.cover {
     width: 100%;
     height: 85%;
     position: relative;
 }
-.form{
+
+.form .actions button {
+    margin-right: 1em;
+}
+
+.error {
+    color: red;
+}
+
+.form .actions {
+    float: right;
+    margin-top: 1em;
+}
+
+.form {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     padding: 1em;
-    border: 2px solid black;
-    height: 70%;
+    border: 2px solid purple;
+    height: 80%;
     width: 50%;
+    background: #80007152;
+}
+
+
+.form table {
+    width: 100%;
+}
+
+.form input {
+    width: 75%;
 }
