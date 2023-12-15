@@ -4,13 +4,23 @@
     background: purple;
     margin: 0;
 }
+.header ul li{
+    display: inline-block;
+    padding-left: 1em;
+    color: white;
+    cursor: pointer;
+}
+.header ul{
+    display: flex;
+    margin-top: 3em;
+}
 
 .cart-button{
     float: right;
 }
 .heading{
     color: white;
-    margin-left: 53%;
+    margin-left: 45%;
     padding-top: 0.5em;
 }
 .cart-button button{

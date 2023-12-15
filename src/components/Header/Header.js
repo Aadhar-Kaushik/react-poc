@@ -6,20 +6,25 @@ import CartContext from "../../ui/store/cart-context/cart-context"
 import classes from "./Header.module.css"
 const Header = (props) => {
     // const cartCtx=useContext(CartContext)
-    const count=useSelector(state=>state.cart.count)
+    const count = useSelector(state => state.cart.count)
 
-    const dispatch=useDispatch()
-    const params=useParams()
+    const dispatch = useDispatch()
+    const params = useParams()
 
-    
-    
-    return <div className={classes.header +" row"}>
-        <div className="col-md-10">
 
-        <h3 className={classes.heading}>{params["name"] || props.heading}</h3>
+
+    return <div className={classes.header + " row"}>
+        <ul className="col-md-2">
+            <li>Home</li>
+            <li>About</li>
+            <li>Contact</li>
+        </ul>
+        <div className="col-md-8">
+
+            <h3 className={classes.heading}>{params["name"] || props.heading}</h3>
         </div>
-        <div className={classes["cart-button"]+" col-md-2"}>
-           {props.isCartBtnShown &&  <button className="btn btn-primary" onClick={()=>dispatch(toggleCart())}>Cart ({count}) </button>}
+        <div className={classes["cart-button"] + " col-md-2"}>
+            {props.isCartBtnShown && <button className="btn btn-primary" onClick={() => dispatch(toggleCart())}>Cart ({count}) </button>}
         </div>
     </div>
 }
