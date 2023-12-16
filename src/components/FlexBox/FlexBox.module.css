@@ -1,0 +1,30 @@
+.container {
+    border: 5px solid black;
+    height: 800px;
+    display: flex;
+    
+}
+
+.box {
+    height: 100px;
+    border: 2px solid brown;
+    margin: 2px;
+    padding: 2px;
+}
+
+#box1 {
+    background: aqua;
+    align-self: center;
+}
+
+#box2 {
+    background: blue;
+}
+
+#box3 {
+    background: chartreuse;
+}
+
+#box4 {
+    background: darkred;
+}
