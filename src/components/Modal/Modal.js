@@ -14,6 +14,7 @@ const Content = props => {
 
     const onClickOrderHandler = () => {
         navigate("/user-details")
+        dispatch(toggleCart())
     }
 
     return <div className={classes.content}>

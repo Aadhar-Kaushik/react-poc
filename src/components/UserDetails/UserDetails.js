@@ -47,7 +47,6 @@ const UserDetails = () => {
     const isPaymentDisabled = !nameIsValid || !contactIsValid || !addressIsValid
 
     return <>
-        <Header heading="User Details" />
         <div className={classes.cover}>
 
             <form className={classes.form}>

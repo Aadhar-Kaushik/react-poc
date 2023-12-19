@@ -3,7 +3,7 @@ import img from "../../assets/meals.jpg"
 import React, { useEffect } from "react"
 import MealItems from "../MealItems/MealItems";
 import { useDispatch, useSelector } from "react-redux";
-import { getMeals } from "../../ui/redux/actions";
+import { getMeals, setScreenName } from "../../ui/redux/actions";
 
 const Meals = () => {
   const dispatch=useDispatch()
@@ -13,6 +13,7 @@ const Meals = () => {
       
       dispatch(getMeals())
     }, 1000);
+    dispatch(setScreenName("MEALS"))
   },[])
 
  const meals=useSelector(state=>state.cart.meals)
