@@ -13,7 +13,7 @@ const Meals = () => {
       
       dispatch(getMeals())
     }, 1000);
-    dispatch(setScreenName("MEALS"))
+    dispatch(setScreenName("MENU"))
   },[])
 
  const meals=useSelector(state=>state.cart.meals)

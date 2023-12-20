@@ -1,7 +1,6 @@
 import { useContext } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { addRemoveViaCart } from "../../ui/redux/actions"
-import CartContext from "../../ui/store/cart-context/cart-context"
 import Modal from "../Modal/Modal"
 import classes from "./Cart.module.css"
 
@@ -30,7 +29,7 @@ const Cart = () => {
             </span>
         </div>)}</ul>
     }
-    const foot = <div className={classes.foot}><span>Total Amount</span>:<strong>{cart.totalAmount}</strong></div>
+    const foot = <div className={classes.foot}><span>Total Amount</span>:<strong>$ {cart.totalAmount}</strong></div>
     return <div>
         <Modal head={head} body={body} foot={foot} />
     </div>

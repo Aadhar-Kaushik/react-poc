@@ -12,7 +12,6 @@ const Header = (props) => {
     const params = useParams()
 
 
-
     return <div className={classes.header + " row"} >
         <ul className="col-md-3">
             <li>
@@ -26,7 +25,7 @@ const Header = (props) => {
             <li>
                 <NavLink className={classes.navlink} to="/meals"
                     style={({ isActive }) => { return { color: isActive ? "skyblue" : "" } }}
-                >Meals</NavLink></li>
+                >Menu</NavLink></li>
             <li>
                 <NavLink className={classes.navlink} to="/contact"
                     style={({ isActive }) => { return { color: isActive ? "skyblue" : "" } }}

@@ -7,7 +7,9 @@ export const ADD_REMOVE_VIA_CART = "ADD_REMOVE_VIA_CART"
 export const ADD_ITEMS_TO_CART = "ADD_ITEMS_TO_CART"
 export const GET_MEALS = "GET_MEALS"
 export const SET_MEALS = "SET_MEALS"
+export const RESET_CART = "RESET_CART"
 export const SET_NAME = "SET_NAME"
+export const SUCCESS = "SUCCESS"
 
 export const loadConfig = () => {
 
@@ -70,10 +72,23 @@ export const setMeals = (data) => {
         data
     }
 }
+export const resetCart = () => {
+
+    return {
+        type: RESET_CART
+    }
+}
 
 export const setScreenName = (name) => {
     return {
         type: SET_NAME,
-        data:name
+        data: name
+    }
+}
+
+export const success = (message) => {
+    return {
+        type: SUCCESS,
+        message
     }
 }

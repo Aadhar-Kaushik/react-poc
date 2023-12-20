@@ -1,4 +1,4 @@
-import { SET_CART_ITEMS, SET_COUNT, SET_MEALS, SET_TOTAL_AMOUNT, TOGGLE_CART } from "../actions"
+import { RESET_CART, SET_CART_ITEMS, SET_COUNT, SET_MEALS, SET_TOTAL_AMOUNT, TOGGLE_CART } from "../actions"
 const INITIAL_STATE = {
     isCartShown: false,
     cartItems: [],
@@ -38,6 +38,14 @@ const cartReducer = (state = INITIAL_STATE, action) => {
                 ...state,
                 meals: action.data
 
+            }
+        case RESET_CART:
+            return {
+                ...state,
+                isCartShown: false,
+                cartItems: [],
+                totalAmount: 0,
+                count: 0,
             }
         default:
             return state

@@ -1,5 +1,8 @@
+import { useEffect } from "react"
+import { useDispatch } from "react-redux"
 import { useNavigate } from "react-router-dom"
 import useInput from "../../ui/custom-hooks/use-input"
+import { resetCart, setScreenName, success, toggleCart } from "../../ui/redux/actions"
 import Header from "../Header/Header"
 import classes from "./UserDetails.module.css"
 const UserDetails = () => {
@@ -35,13 +38,22 @@ const UserDetails = () => {
     } = useInput(address => address.trim().length > 0)
 
     const navigate = useNavigate()
+    const dispatch = useDispatch()
+    useEffect(() => {
+        dispatch(setScreenName("User Details"))
+    }, [])
+
 
     const onClickPaymentHandler = event => {
         event.preventDefault()
+        
+        dispatch(success("Order Placed Successfully."))
     }
 
     const onClickCancelHandler = () => {
-        navigate("/home")
+        dispatch(toggleCart())
+        navigate(-1)
+
     }
 
     const isPaymentDisabled = !nameIsValid || !contactIsValid || !addressIsValid
