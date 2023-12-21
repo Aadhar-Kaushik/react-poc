@@ -9,6 +9,8 @@
     left: 50%;
     transform: translate(-50%,-50%);
     color: #FFFF;
+   
+    
 }
 .card h3{
     text-align: center;
@@ -19,8 +21,13 @@
     float: right;
     border-radius: 30px;
     width: 7em;
+    align-self: flex-end;
 }
 
-.red{
-    color: red;
+.card form{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    flex-wrap: wrap;
+    
 }

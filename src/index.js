@@ -11,6 +11,7 @@ import { configureStore } from "./ui/redux/configure-store"
 import {BrowserRouter} from "react-router-dom"
 import { PrimeReactProvider } from 'primereact/api';
 import "primereact/resources/themes/lara-light-cyan/theme.css";
+import LoginContextProvider from './ui/store/login-context.js/login-context-provider';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 
@@ -20,9 +21,11 @@ root.render(
     <PrimeReactProvider>
     <Suspense fallback={<div></div>}>
     <CartContextProvider>
+    <LoginContextProvider>
       <Provider store={configureStore()}>
         <App />
       </Provider>
+    </LoginContextProvider>
     </CartContextProvider>
     </Suspense>
     </PrimeReactProvider>

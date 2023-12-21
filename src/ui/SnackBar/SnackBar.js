@@ -13,7 +13,6 @@ const SnackBar = () => {
         dispatch(resetCart())
         navigate("/home")
     }
-    console.log(toast)
 
     useEffect(() => {
         toastRef.current.show(toast)

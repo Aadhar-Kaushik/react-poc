@@ -1,6 +1,8 @@
 import classes from "./MealDetails.module.css"
 import { useParams, useLocation, useNavigate } from "react-router-dom"
 import { useEffect, useState } from "react"
+import { useDispatch } from "react-redux"
+import { setScreenName } from "../../ui/redux/actions"
 
 const MealDetails = () => {
     const navigate = useNavigate()
@@ -8,6 +10,10 @@ const MealDetails = () => {
     const pathVar = useParams()
     const location = useLocation()
     const search = new URLSearchParams(location.search)
+    const dispatch = useDispatch()
+    useEffect(() => {
+        dispatch(setScreenName(pathVar.name))
+    }, [])
 
     useEffect(() => {
         console.log("UseEffect")
@@ -19,7 +25,7 @@ const MealDetails = () => {
 
     return <div className={classes.table}>
         <button className="btn btn-danger" onClick={() => navigate(-1)}>Back</button>
-        <button className="btn btn-primary" onClick={() => setToggle(prev=>!prev)}>
+        <button className="btn btn-primary" onClick={() => setToggle(prev => !prev)}>
             <div>Toggle</div>
             <div>(For UseEffect)</div>
         </button>

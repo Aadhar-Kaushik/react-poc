@@ -1,5 +1,6 @@
 import React from "react"
 import { Navigate, Route, Routes } from "react-router-dom"
+import AuthGuard from "../../ui/AuthGuard/AuthGuard"
 
 
 const Home = React.lazy(() => import("../Home/Home"))
@@ -19,16 +20,16 @@ const AppRouter = () => {
     return <Routes>
         <Route path="/" element={<Navigate to="/login" />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/contact" element={<Contacts />}>
-            <Route path="phone" element={<Phone/> } />
-            <Route path="email" element={<Email/> } />
-            <Route path="fax" element={<Fax/> } />
+        <Route path="/contact" element={<AuthGuard component={Contacts} />}>
+            <Route path="phone" element={<AuthGuard component={Phone}/> } />
+            <Route path="email" element={<AuthGuard component={Email}/> } />
+            <Route path="fax" element={<AuthGuard component={Fax}/> } />
         </Route>
-        <Route path="/about" element={<About />} />
-        <Route path="meals" element={<Meals />} />
-        <Route path="meals/:id/:name" element={<MealDetails />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/user-details" element={<UserDetails />} />
+        <Route path="/about" element={<AuthGuard component={About} />} />
+        <Route path="meals" element={<AuthGuard component={Meals} />} />
+        <Route path="meals/:id/:name" element={<AuthGuard component={MealDetails} />} />
+        <Route path="/home" element={<AuthGuard component={Home} />} />
+        <Route path="/user-details" element={<AuthGuard component={UserDetails} />} />
         <Route path="/*" element={<PageNotFound />} />
     </Routes>
 }
