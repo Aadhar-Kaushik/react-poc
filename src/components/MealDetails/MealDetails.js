@@ -1,12 +1,15 @@
 import classes from "./MealDetails.module.css"
 import { useParams, useLocation, useNavigate } from "react-router-dom"
-import { useEffect, useState } from "react"
+import { useCallback, useEffect, useState } from "react"
 import { useDispatch } from "react-redux"
 import { setScreenName } from "../../ui/redux/actions"
+import MealPrice from "./MealPrice"
+import MealId from "./MealId"
+import MealDesc from "./MealDesc"
 
 const MealDetails = () => {
     const navigate = useNavigate()
-    const [toggle, setToggle] = useState(false)
+    const [showFlag, setShowFlag] = useState(false)
     const pathVar = useParams()
     const location = useLocation()
     const search = new URLSearchParams(location.search)
@@ -16,44 +19,58 @@ const MealDetails = () => {
     }, [])
 
     useEffect(() => {
-        console.log("UseEffect")
+        // console.log("UseEffect")
         return () => {
-            console.log("Clean-up")
+            // console.log("Clean-up")
 
         }
-    }, [toggle])
+    }, [showFlag])
 
-    return <div className={classes.table}>
-        <button className="btn btn-danger" onClick={() => navigate(-1)}>Back</button>
-        <button className="btn btn-primary" onClick={() => setToggle(prev => !prev)}>
-            <div>Toggle</div>
-            <div>(For UseEffect)</div>
-        </button>
 
-        <table>
-            <tr>
-                <th>Parameter</th>
-                <th>Value</th>
-            </tr>
-            <tr>
-                <td>ID</td>
-                <td>{pathVar.id}</td>
-            </tr>
-            <tr>
-                <td>Name</td>
-                <td>{pathVar.name}</td>
-            </tr>
-            <tr>
-                <td>Description</td>
-                <td>{search.get("desc")}</td>
-            </tr>
-            <tr>
-                <td>Price</td>
-                <td>{search.get("price")}</td>
-            </tr>
-        </table>
+    const handleCallback = useCallback(() => {
+        // if we remove useCallback, ItemDesc will get rerendered even if it is not using 
+        // showFlag as when MealDetails rerenders handleCallback will get created
+        // and thus MealDetails using handleCallback will point to new function location
+        // by using useCallback, new handleCallback function will not get created
 
-    </div>
+    }, [])
+
+    return <>
+        <div className={classes.table}>
+            <button className="btn btn-danger" onClick={() => navigate(-1)}>Back</button>
+            <button className="btn btn-primary" onClick={() => setShowFlag(prev => !prev)}>
+                <div>Show Values</div>
+                <div>(For UseEffect)</div>
+                <div>(For React.memo)</div>
+                {/* MealPrice, MealId show values changing but MealDesc show values
+                 not changing hence not getting rerendered using React.memo() */}
+            </button>
+            <table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Value</th>
+                </tr>
+                <tr>
+                    <td>ID</td>
+                    <td><MealId show={showFlag} id={pathVar.id} handleCallback={handleCallback} /></td>
+                </tr>
+                <tr>
+                    <td>Name</td>
+                    <td>{pathVar.name}</td>
+                </tr>
+                <tr>
+                    <td>Description</td>
+                    <td><MealDesc show={true} desc={search.get("desc")} handleCallback={handleCallback} /></td>
+                </tr>
+                <tr>
+                    <td>Price</td>
+                    <td><MealPrice show={showFlag} price={search.get("price")} handleCallback={handleCallback} /></td>
+                </tr>
+            </table>
+
+        </div>
+
+    </>
 }
 
 export default MealDetails
