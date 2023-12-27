@@ -6,6 +6,21 @@ import { setScreenName } from "../../ui/redux/actions"
 import MealPrice from "./MealPrice"
 import MealId from "./MealId"
 import MealDesc from "./MealDesc"
+import styled from "styled-components"
+
+const StyledButton=styled.button`
+font: inherit;								
+padding: 0.5rem 1.5rem;
+border: 1px solid #8b005d;
+color: white;
+background: #4e4eff;
+box-shadow: 0 0 4px rgba(0, 0, 0, 0.26);
+cursor: pointer;
+
+&:hover{
+    background:salmon
+}
+`
 
 const MealDetails = () => {
     const navigate = useNavigate()
@@ -42,16 +57,16 @@ const MealDetails = () => {
     return <>
         <div className={classes.table}>
             <button className="btn btn-danger" onClick={() => navigate(-1)}>Back</button>
-            <button className="btn btn-primary" onClick={() => setAllowFlag(prev => !prev)}>
+            <StyledButton onClick={() => setAllowFlag(prev => !prev)}>
                 Re-render callback
-            </button>
-            <button className="btn btn-primary" onClick={() => setShowFlag(prev => !prev)}>
+            </StyledButton>
+            <StyledButton onClick={() => setShowFlag(prev => !prev)}>
                 <div>Show Values</div>
                 <div>(For UseEffect)</div>
                 <div>(For React.memo)</div>
                 {/* MealPrice, MealId show values changing but MealDesc show values
                  not changing hence not getting rerendered using React.memo() */}
-            </button>
+            </StyledButton>
             <table>
                 <tr>
                     <th>Parameter</th>
