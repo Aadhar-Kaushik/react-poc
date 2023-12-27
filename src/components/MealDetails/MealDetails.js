@@ -10,6 +10,7 @@ import MealDesc from "./MealDesc"
 const MealDetails = () => {
     const navigate = useNavigate()
     const [showFlag, setShowFlag] = useState(false)
+    const [allowFlag, setAllowFlag] = useState(false)
     const pathVar = useParams()
     const location = useLocation()
     const search = new URLSearchParams(location.search)
@@ -32,12 +33,18 @@ const MealDetails = () => {
         // showFlag as when MealDetails rerenders handleCallback will get created
         // and thus MealDetails using handleCallback will point to new function location
         // by using useCallback, new handleCallback function will not get created
+        // When allowFlag changed MealDetails will get rerendered
+        //  handleCallback will get recreated and since MealId, MealPrice and MealDesc
+        // are using handleCallback, all these 3 components will get rerendered
 
-    }, [])
+    }, [allowFlag])
 
     return <>
         <div className={classes.table}>
             <button className="btn btn-danger" onClick={() => navigate(-1)}>Back</button>
+            <button className="btn btn-primary" onClick={() => setAllowFlag(prev => !prev)}>
+                Re-render callback
+            </button>
             <button className="btn btn-primary" onClick={() => setShowFlag(prev => !prev)}>
                 <div>Show Values</div>
                 <div>(For UseEffect)</div>
