@@ -12,8 +12,8 @@ const Header = (props) => {
     const params = useParams()
 
 
-    return <div className={classes.header + " row"} >
-        <ul className="col-md-3">
+    return <div className={classes.header} >
+        <ul >
             <li>
                 <NavLink className={classes.navlink} to="/home"
                     style={({ isActive }) => { return { color: isActive ? "skyblue" : "" } }}
@@ -31,11 +31,11 @@ const Header = (props) => {
                     style={({ isActive }) => { return { color: isActive ? "skyblue" : "" } }}
                 >Contact</NavLink></li>
         </ul>
-        <div className="col-md-7">
+        <div>
 
             <h3 className={classes.heading}>{params["name"] || screenName}</h3>
         </div>
-        <div className={classes["cart-button"] + " col-md-2"}>
+        <div className={classes["cart-button"] }>
             {props.isCartBtnShown && <button className="btn btn-primary" onClick={() => dispatch(toggleCart())}>Cart ({count}) </button>}
         </div>
     </div>

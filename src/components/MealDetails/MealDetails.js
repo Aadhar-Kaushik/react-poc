@@ -35,12 +35,12 @@ const MealDetails = () => {
     }, [])
 
     useEffect(() => {
-        // console.log("UseEffect")
+        console.log("UseEffect::::::::::")
         return () => {
-            // console.log("Clean-up")
+            console.log("Clean-up:::::::::::")
 
         }
-    }, [showFlag])
+    },[])
 
 
     const handleCallback = useCallback(() => {
