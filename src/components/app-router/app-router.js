@@ -15,6 +15,8 @@ const Phone = React.lazy(() => import("../contacts/Phone"))
 const Fax = React.lazy(() => import("../contacts/Fax"))
 const Email = React.lazy(() => import("../contacts/Email"))
 
+const TestHome=React.lazy(()=>import("../Test/TestHome"))
+
 
 const AppRouter = () => {
     return <Routes>
@@ -26,6 +28,7 @@ const AppRouter = () => {
             <Route path="fax" element={<AuthGuard component={Fax}/> } />
         </Route>
         <Route path="/about" element={<AuthGuard component={About} />} />
+        <Route path="/test-with-jest" element={<AuthGuard component={TestHome} />} />
         <Route path="meals" element={<AuthGuard component={Meals} />} />
         <Route path="meals/:id/:name" element={<AuthGuard component={MealDetails} />} />
         <Route path="/home" element={<AuthGuard component={Home} />} />

@@ -30,6 +30,10 @@ const Header = (props) => {
                 <NavLink className={classes.navlink} to="/contact"
                     style={({ isActive }) => { return { color: isActive ? "skyblue" : "" } }}
                 >Contact</NavLink></li>
+            <li>
+                <NavLink className={classes.navlink} to="/test-with-jest"
+                    style={({ isActive }) => { return { color: isActive ? "skyblue" : "" } }}
+                >Test</NavLink></li>
         </ul>
         <div>
 

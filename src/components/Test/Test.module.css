@@ -1,0 +1,13 @@
+
+
+.count{
+    text-align: center;
+}
+.count strong{
+    font-size: 40px;
+}
+.action{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
