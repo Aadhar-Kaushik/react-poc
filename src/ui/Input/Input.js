@@ -4,12 +4,10 @@ import classes from "./Input.module.css"
 const Input = forwardRef((props, ref) => {
     const inputRef = useRef()
 
-    const activate = () => {								
-        inputRef.current.focus();							
-      };
+    
     useImperativeHandle(ref, () => {
         return {
-            focus: activate
+            _focus: ()=>inputRef.current.focus()
         }
     })
 

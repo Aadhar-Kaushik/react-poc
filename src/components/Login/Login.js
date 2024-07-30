@@ -36,9 +36,9 @@ const Login = () => {
         event.preventDefault()
         if (isFormDisabled) {
             if (!usernameIsValid) {
-                usernameRef.current.focus()
+                usernameRef.current._focus()
             } else if (passwordRef) {
-                passwordRef.current.focus()
+                passwordRef.current._focus()
             }
 
             return
